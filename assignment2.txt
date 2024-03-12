@@ -1,0 +1,34 @@
+CMPT310: Winter 2024: 
+Assignment 2: Adversarial search: TicTacToa game
+
+In this assignment various algorithms for adversarial search are implemented. The MinMax plain version is already implemented. 
+There are 3 other searches to implement: MinMax with Cutoff depth (uses Evaluation function at set depth) (which can be done by modifying MinMax function or as a separate
+function as you like), AlphaBeta, AlphaBeta with cutoff depth(used Evaluation function at set depth, again the 2 AlphaBeta versions can be done as one function), 
+Expectimax, ExpectiMax with Cutoff depth (uses Evaluation function at set depth)
+
+1)You need to come up with a smart Evaluation function for the game. It has to give highest value to the board configuration which
+has the most potential for a win by the player. Find out what charactersics in a board current layout are more promising and then try to 
+quantify them. There are many ways to achieve this, use your game skill, creativity, and time. I suggest start with a the simplest 
+one, and make it smarter later. This Evaluation function is used anywhere cutoff depth is used.
+2) For ExpectiMax, you need to come up with the probability for each choice. Items to consider here:
+    i) Total probabilities for all choices at a node should be 1
+    ii)In simple case use equal probability to start with. Later, once it is working, inject some smartness into it. 
+    iii)Remember, Chance node in Expectimax must be at the cutoff depth level. All the layers above it tillt the root are MinMax levels.
+    iv) One suggestion is to consider the blocking of the opponents as factor in the probability assignment. For example 
+        if the opponent is about to win with the next move you make, then give it lower probability to this move, so to lower the
+        likelyhood of making that move.
+
+3) Consider that max time for a player move is 5 seconds. Based on this try different depth values and choose the highest value
+   which still satisfy the time limit. Make that value to be the default in the code and specify it in the comment on line 25.
+
+4) Remember the algorithm in each case should be used for both sides of the game, so for example
+  MinMax should be used for both X and O players.
+
+Rubric for Grading:
+25% for MinMax with Depth Cutoff working
+25% for AlphaBeta with  Depth Cutoff working 
+30% for Expectimax with cutoff depth working
+10% for quality of your evaluation function: game must be playable for board size > 6, meaning O player take < 5 seconds to move
+10% (includes 5% bonus) if game not be winable by X player in one of the play modes.
+
+
